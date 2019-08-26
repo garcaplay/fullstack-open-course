@@ -13,3 +13,14 @@ This project contains the exercises of the [Full Stack Open Course](https://full
  7. React router, styling app with CSS and webpack
  8. GraphQL
 
+## Branches
+
+master
+* dev
+    * part1
+        * courseinfo
+        * unicafe
+        * anecdotes
+    * part2
+        * phonebook
+        * countries
