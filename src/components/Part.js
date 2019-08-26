@@ -4,7 +4,7 @@ class Part extends Component{
 render(){
 
     return(
-        <p>{this.props.part} {this.props.exercises}</p>
+        <p>{this.props.part.name} {this.props.part.exercises}</p>
     )
 }
 }
