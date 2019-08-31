@@ -1,36 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import Header from './components/Header';
-import Content from './components/Content';
-import Total from './components/Total';
+import { HashRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Courseinfo from './courseinfo/index'; 
 
 const App = () => {
-    const course = {
-        name: "Half Stack application development",
-        parts: [
-            {
-                name: "Fundamentals of React",
-                exercises: 10
-            },
-            {
-                name: "Using props to pass data",
-                exercises: 7
-            },
-            {
-                name: "State of a component",
-                exercises: 14
-            }
-        ]
-    };
     
     return(
-        <div>
-            <Header course={course.name}/>
-            <Content parts={course.parts}/>
-            <Total parts={course.parts}/>
-        </div>
+        <Switch>
+<Route exact path="/" component={Home}/>
+            <Route path="/courseinfo" component={Courseinfo} />
+           
+        </Switch>
     )
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+ReactDOM.render(<HashRouter><App/></HashRouter>, document.getElementById('root'))
