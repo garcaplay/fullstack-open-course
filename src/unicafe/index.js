@@ -1,4 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
+
+const Statistics = (props) =>{
+    const getAll = ()=> {
+        const allSum = props.good + props.neutral + props.bad;
+        return allSum;
+    }
+
+    const getAverage = () => {
+        const average = (props.good + props.neutral + props.bad)/3;
+        return average;
+    }
+
+    const getPercentage = () => {
+        const total = props.good + props.neutral + props.bad;
+        const percentage = props.good ? `${props.good / total * 100}%` : "0%";
+        
+        return percentage
+    }
+    return (
+        <Fragment>
+            <h2>Statistics</h2>
+            <p>Good <span>{props.good}</span></p>
+            <p>Neutral <span>{props.neutral}</span></p>
+            <p>Bad <span>{props.bad}</span></p>
+            <Results handleItem={()=>getAll()} text={"All"}/>
+            <Results handleItem={()=>getAverage()} text={"Average"}/>
+            <Results handleItem={()=>getPercentage()} text={"Positive"}/>
+        </Fragment>
+    )
+}
 
 const Button = (props)=>{
    return( <button onClick={props.handleClick}>{props.text}</button>)
@@ -16,23 +46,6 @@ const Unicafe = () => {
     const [neutral, setNeutral] = useState(0);
     const [bad, setBad] = useState(0);
 
-    const getAll = ()=> {
-        const allSum = good + neutral + bad;
-        return allSum;
-    }
-
-    const getAverage = () => {
-        const average = (good + neutral + bad)/3;
-        return average;
-    }
-
-    const getPercentage = () => {
-        const total = good + neutral + bad;
-        const percentage = good ? `${good / total * 100}%` : "0%";
-        
-        return percentage
-    }
-
     return(
         <div>
             <h1>UNICAFE</h1>
@@ -42,15 +55,7 @@ const Unicafe = () => {
                 <Button handleClick={()=>setNeutral(neutral+1)} text="Neutral"/>
                 <Button handleClick={()=>setBad(bad+1)} text="Bad"/>
             </div>
-            <div>
-                <h2>Statistics</h2>
-                <p>Good <span>{good}</span></p>
-                <p>Neutral <span>{neutral}</span></p>
-                <p>Bad <span>{bad}</span></p>
-                <Results handleItem={()=>getAll()} text={"All"}/>
-                <Results handleItem={()=>getAverage()} text={"Average"}/>
-                <Results handleItem={()=>getPercentage()} text={"Positive"}/>
-            </div>
+            <Statistics good={good} bad={bad} neutral={neutral}/>
         </div>
     )
 }
