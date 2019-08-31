@@ -19,13 +19,36 @@ const Statistics = (props) =>{
     }
     return (
         <Fragment>
-            <h2>Statistics</h2>
-            <p>Good <span>{props.good}</span></p>
-            <p>Neutral <span>{props.neutral}</span></p>
-            <p>Bad <span>{props.bad}</span></p>
-            <Results handleItem={()=>getAll()} text={"All"}/>
-            <Results handleItem={()=>getAverage()} text={"Average"}/>
-            <Results handleItem={()=>getPercentage()} text={"Positive"}/>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Statistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Good</td>
+                        <td>{props.good}</td>
+                    </tr>
+                    <tr>
+                        <td>Neutral</td>
+                        <td>{props.neutral}</td>
+                    </tr>
+                    <tr>
+                        <td>Bad</td>
+                        <td>{props.bad}</td>
+                    </tr>
+                    <tr>
+                    <Results handleItem={()=>getAll()} text={"All"}/>
+                    </tr>
+                    <tr>
+                    <Results handleItem={()=>getAverage()} text={"Average"}/>
+                    </tr>
+                    <tr>
+                    <Results handleItem={()=>getPercentage()} text={"Positive"}/>
+                    </tr>
+                </tbody>
+            </table>
         </Fragment>
     )
 }
@@ -36,7 +59,10 @@ const Button = (props)=>{
 
 const Results = (props)=>{
     return(
-        <p>{props.text} <span>{props.handleItem()}</span></p>
+        <Fragment>
+            <td>{props.text}</td>
+            <td>{props.handleItem()}</td>
+        </Fragment>
     )
 }
 
