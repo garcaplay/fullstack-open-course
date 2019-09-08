@@ -9,17 +9,23 @@ const anecdotesArray = [
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
   ]
 
+
 const Anecdotes = () => {
     
     const [selected, setSelected] = useState(0);
+    const [anecdotes, setAnecdotes] = useState(anecdotesArray)
+    const getRandomAnecdote = ()=>{
+        const randomNumber = Math.random()*(anecdotesArray.length - 0) + 0;
+        setSelected(Math.floor(randomNumber));
+    }
 
     return(
         <Fragment>
         <div>
-           {props.anecdotesArray[selected]} 
+           {anecdotes[selected]} 
         </div>
         <div>
-            <Button text="Next anecdote" handleClick={}/>
+            <button onClick={getRandomAnecdote}>Next anecdote</button>
         </div>
         </Fragment>
     )
