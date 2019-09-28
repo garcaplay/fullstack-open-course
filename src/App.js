@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './Home';
-import Courseinfo from './courseinfo/index'; 
-import Unicafe from './unicafe/index';
-import Anecdotes from './anecdotes/index';
+import Courseinfo from './part1/courseinfo/index'; 
+import Unicafe from './part1/unicafe/index';
+import Anecdotes from './part1/anecdotes/index';
 
 const App = () => {
     
