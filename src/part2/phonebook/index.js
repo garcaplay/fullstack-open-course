@@ -4,17 +4,25 @@ const Phonebook = () => {
   const [ persons, setPersons] = useState([
     { name: 'Arto Hellas' }
   ]) 
-  const [ newName, setNewName ] = useState('')
+  const [ newName, setNewName ] = useState('');
+  const [ showMessage, setShowMessage ] = useState(false);
   const handleInputName = (e)=>{
     const inputName = e.target.value;
     setNewName(inputName);
+    setShowMessage(false);
   }
   const addNewName = (e)=>{
     e.preventDefault();
     const newPerson = {name: newName};
     const personCopy = [...persons];
-    personCopy.push(newPerson)
-    setPersons(personCopy);
+    const checkIfExists = personCopy.find(function(person){ return person.name === newPerson.name }) !== undefined;
+    if(!checkIfExists){
+        personCopy.push(newPerson);
+        setPersons(personCopy);
+    } else {
+        setShowMessage(true);
+    }
+    
   }
   return (
     <div>
@@ -28,6 +36,8 @@ const Phonebook = () => {
         </div>
       </form>
       <h2>Numbers</h2>
+      {showMessage ?
+      <p style={{color:"red"}}>{newName} is already added to phonebook</p> : ""}
     </div>
   )
 }
