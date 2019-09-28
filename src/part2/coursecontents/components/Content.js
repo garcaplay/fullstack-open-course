@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Part from './Part';
+import Total from './Total';
+
 const Content = (props) => {
 
     return (
-        <ul>
-            {props.parts.map( part =>{
-                return <Part key={part.id} data={part}/>
-            })}
-        </ul>
+        <Fragment>
+            <ul>
+                {props.parts.map( part =>{
+                    return <Part key={part.id} data={part}/>
+                })}
+            </ul>
+            <Total parts={props.parts}/>
+        </Fragment>
     )
 }
 
