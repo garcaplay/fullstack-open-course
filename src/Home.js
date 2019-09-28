@@ -8,6 +8,7 @@ const Home = ()=>{
             <a href="#/anecdotes"><button>Anecdotes</button></a>
             <hr></hr>
             <a href="#/coursecontents"><button>Course contents</button></a>
+            <a href="#/phonebook"><button>Phonebook</button></a>
         </div>
     )
 

@@ -22,5 +22,6 @@ master
         * unicafe
         * anecdotes
     * part2
+        * coursecontents
         * phonebook
         * countries

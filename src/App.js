@@ -5,6 +5,7 @@ import Courseinfo from './part1/courseinfo/index';
 import Unicafe from './part1/unicafe/index';
 import Anecdotes from './part1/anecdotes/index';
 import CourseContents from './part2/coursecontents/index';
+import Phonebook from './part2/phonebook/index';
 
 const App = () => {
     
@@ -15,6 +16,7 @@ const App = () => {
             <Route path="/unicafe" component={Unicafe}/>
             <Route path="/anecdotes" component={Anecdotes}/>
             <Route path="/coursecontents" component={CourseContents}/>
+            <Route path="/phonebook" component={Phonebook}/>
         </Switch>
     )
 }

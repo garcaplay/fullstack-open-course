@@ -1,5 +1,5 @@
 import React from 'react';
-import Subjects from './components/subjects';
+import Subjects from './components/Subjects';
 
 const CourseContents = () => {
     const subjects = [
