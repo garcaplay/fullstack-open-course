@@ -4,6 +4,7 @@ import Home from './Home';
 import Courseinfo from './part1/courseinfo/index'; 
 import Unicafe from './part1/unicafe/index';
 import Anecdotes from './part1/anecdotes/index';
+import CourseContents from './part2/coursecontents/index';
 
 const App = () => {
     
@@ -13,6 +14,7 @@ const App = () => {
             <Route path="/courseinfo" component={Courseinfo} />
             <Route path="/unicafe" component={Unicafe}/>
             <Route path="/anecdotes" component={Anecdotes}/>
+            <Route path="/coursecontents" component={CourseContents}/>
         </Switch>
     )
 }
