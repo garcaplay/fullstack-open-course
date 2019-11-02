@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PhonebookItem from './components/PhonebookItem';
 import PhonebookForm from './components/PhonebookForm';
 import PhonebookFilter from './components/PhonebookFilter';
@@ -54,6 +55,16 @@ const Phonebook = () => {
         setShowNumberMessage(true);
     }
   }
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/people')
+      .then(response => {
+        console.log('promise fulfilled', response);
+        setPeople(response.data);
+        setFilteredPeople(response.data);
+      })
+  }, [])
+
   useEffect (()=>{
     const newPeopleArray = people.filter((person, id)=>{
       if((person.name && person.name.toUpperCase().includes(newSearch.toUpperCase())) || (person.number && person.number.toUpperCase().includes(newSearch.toUpperCase()))){
