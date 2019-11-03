@@ -6,6 +6,8 @@ import Unicafe from './part1/unicafe/index';
 import Anecdotes from './part1/anecdotes/index';
 import CourseContents from './part2/coursecontents/index';
 import Phonebook from './part2/phonebook/index';
+import Countries from './part2/countries/index';
+
 
 const App = () => {
     
@@ -17,6 +19,7 @@ const App = () => {
             <Route path="/anecdotes" component={Anecdotes}/>
             <Route path="/coursecontents" component={CourseContents}/>
             <Route path="/phonebook" component={Phonebook}/>
+            <Route path="/countries" component={Countries}/>
         </Switch>
     )
 }

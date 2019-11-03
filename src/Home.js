@@ -9,6 +9,7 @@ const Home = ()=>{
             <hr></hr>
             <a href="#/coursecontents"><button>Course contents</button></a>
             <a href="#/phonebook"><button>Phonebook</button></a>
+            <a href="#/countries"><button>Countries</button></a>
         </div>
     )
 
