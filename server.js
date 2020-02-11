@@ -57,27 +57,24 @@ app.delete('/persons/:id', (request, response) => {
     response.status(204).end()
 })
 
-const generateId = () => {
-    const maxId = persons.length > 0
-        ? Math.max(...persons.map(n => n.id))
-        : 0
+const generateId = (min) => {
+    const maxId = Math.floor(Math.random() * (500 - min + 1))
     return maxId + 1
 }
 
 app.post('/persons', (request, response) => {
     const body = request.body
 
-    if (!body.content) {
+    if (!body.name || !body.number) {
         return response.status(400).json({
             error: 'content missing'
         })
     }
 
     const note = {
-        content: body.content,
-        important: body.important || false,
-        date: new Date(),
-        id: generateId(),
+        name: body.name,
+        number: body.number,
+        id: generateId(persons.length + 1),
     }
 
     persons = persons.concat(note)
