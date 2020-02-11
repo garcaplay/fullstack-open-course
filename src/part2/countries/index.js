@@ -5,6 +5,7 @@ import CountryCard from './components/CountryCard';
 import CountryList from './components/CountryList';
 
 const Countries = () => {
+  const apiKeyWeather = process.env.OPENWEATHER_API_KEY;
   const [ filterName, setFilterName] = useState(''); 
   const [ countries, setCountries ] = useState([]);
   const [ tooManyResults, setTooManyResults ] = useState(false);
@@ -75,7 +76,8 @@ const Countries = () => {
       setShowCountryCard(false);
       setTooManyResults(false);
     }
-  }, [countries])
+  }, [countries]);
+  console.log("apiKeyWeather", apiKeyWeather)
   return (
     <div>
       <h2>Countries</h2>
